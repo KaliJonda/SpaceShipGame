@@ -1,13 +1,44 @@
 pico-8 cartridge // http://www.pico-8.com
 version 42
 __lua__
---screen clear
-cls()
+--init gets called once
+--at the beginning
+function _init()
+	--screen clear
+	cls()
+	x_player_position=64
+	y_player_position=64
+	
+	
+end
 
---drawing 1st sprite
---on middle screen
 
-spr(001,64,64)
+--draw gets called when a
+--new frame gets called to
+--be drawn on the screen (30fps)
+function _draw()
+	--drawing 1st sprite
+	--on middle screen
+	
+	cls()
+	
+	print(x_player_position,1,0)
+	print(y_player_position,1,7)
+	
+	spr(001,x_player_position,y_player_position)
+end
+
+
+--update is for gameplay
+--(hard 30fps)
+function _update()
+	
+end
+
+--imma create functions downhere
+function x_movement()
+	
+end
 __gfx__
 00000000000220000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 00000000002882000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000

@@ -11,6 +11,9 @@ function _init()
 
 	ship_x_spd=0
 	ship_y_spd=0
+
+	prjtl_x=0
+	prjtl_y=0
 	
 	projectile_type=2
 	shooting=false
@@ -34,10 +37,10 @@ function _draw()
 	
 	spr(1,ship_x,ship_y)
 	
+
 	if shooting then
-		spr(projectile_type,projectile_x_position,projectile_y_position)
-	end	
-	
+		spr(projectile_type,prjtl_x,prjtl_y)
+	end
 end
 
 
@@ -101,13 +104,21 @@ end
 --shooting and 1st projectile
 --position on screen
 function shoot_input()
-		
+	if btnp(4) and not shooting then
+		shooting=true
+		prjtl_x=ship_x
+		prjtl_y=ship_y-9
+	end
 end
 
 
 
 function update_projectile()
-
+	prjtl_y-=projectile_type
+	
+	if prjtl_y<=0 then
+		shooting=false
+	end
 end
 __gfx__
 00000000000220000900009000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000

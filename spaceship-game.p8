@@ -36,16 +36,23 @@ end
 
 
 --imma create functions downhere
+
+
+
+--updates spaceship's position
+--along the x-axis
 function x_movement()
 	x_player_position += x_speed
 	
 	if x_player_position < 0 then
-	  x_player_position = 0
-	elseif x_player_position > 120 then
 	  x_player_position = 120
+	elseif x_player_position > 120 then
+	  x_player_position = 0
 	end
 end
 
+--updates spaceship's position
+--along the y-axis
 function y_movement()
 	y_player_position += y_speed
 	
@@ -57,27 +64,26 @@ function y_movement()
 end
 
 
---si pulsas un boton da un
---valor a x_speed o y_speed
---y llama a movimiento para
---actualizar la posicion
+--when u press a button
+--sets x_speed or y_speed
+--and calls movement to 
+--update position
 function handle_input()
-		--btn() devuelve true/false
-		--true vale 1, false vale 0
+		--btn() returns true/false
 	if btn(0) then
-	 x_speed = -1
+	 x_speed = -2
 	 x_movement() 
 	end 
 	if btn(1) then
-	 x_speed = 1 
+	 x_speed = 2 
 	 x_movement() 
 	end 
 	if btn(2) then 
-	 y_speed = -1 
+	 y_speed = -2 
 	 y_movement() 
 	end 
 	if btn(3) then
-	 y_speed = 1
+	 y_speed = 2
 	 y_movement() 
 	end
 end
